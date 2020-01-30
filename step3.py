@@ -10,14 +10,9 @@ if not cap.isOpened():
 app = ClarifaiApp(api_key='f805f0ec701747a2ae4db700dd78f217')
 model = app.public_models.general_model
 
-def sig_interrupt_handler(signal, frame):
-    print "HIIIII"
-    sys.exit(0)
-#signal.signal(signal.SIGINT, sig_interrupt_handler)
-
 print "Running. Press control+C to quit."
-last_status = None
 
+last_status = None
 try:
     while True:
 
@@ -46,5 +41,6 @@ try:
             else:
                 print "two eyes"
             last_status = new_status
+
 except KeyboardInterrupt:
     cap.release()
